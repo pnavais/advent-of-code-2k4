@@ -11,8 +11,8 @@ fun countDistances(input: List<String>) =
         .let { it.first.sorted() zip it.second.sorted() }
         .fold(0) { acc, d -> acc + abs(d.second - d.first) }
 
-fun countSimilarity(input: List<String>): BigInteger {
-    return input
+fun countSimilarity(input: List<String>): BigInteger =
+    input
         .map { line -> line.split("\\s+".toRegex()).map(String::toInt).let { it[0] to it[1] } }
         .unzip()
         .toList()
