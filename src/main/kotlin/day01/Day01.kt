@@ -21,12 +21,13 @@ fun countSimilarity(input: List<String>): BigInteger =
                 acc.compute(i) { _, v -> v?.plus(1) ?: 1 }
                 acc
             }
-        }. let {
+        }.let {
             it[0].keys.fold(BigInteger.ZERO) { acc, i ->
-                acc.plus(it[0][i]!!.toBigInteger().times(i.toBigInteger().times(it[1][i]?.toBigInteger() ?: BigInteger.ZERO)))
+                acc.plus(
+                    it[0][i]!!.toBigInteger().times(i.toBigInteger().times(it[1][i]?.toBigInteger() ?: BigInteger.ZERO))
+                )
             }
         }
-}
 
 fun main() {
     val testInput = readInput("day01")
