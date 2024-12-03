@@ -10,7 +10,6 @@ fun isReportValid(levels: List<Int>) = with(levels[0] < levels[1]) {
 fun countSafeReports(input: List<String>) =
     input.map { it.split(" ").map(String::toInt) }.count { levels -> (isReportValid(levels) == -1) }
 
-
 fun countSafeReportsWithDampener(input: List<String>) =
     input.map { it.split(" ").map(String::toInt) }.count { levels ->
         val idx = isReportValid(levels)
